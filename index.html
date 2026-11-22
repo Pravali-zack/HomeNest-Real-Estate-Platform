@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="CSS/base.css">
-  <link rel="stylesheet" href="CSS/properties-about-contact.css">
   <link rel="stylesheet" href="CSS/navbar-hero.css">
+  <link rel="stylesheet" href="CSS/search-footer.css">
   <script src="Script.js" defer></script>
 </head>
 <body>
@@ -53,6 +53,7 @@
 
     <section class="search-section" aria-label="Property search">
       <div class="search-panel">
+        <h2 class="search-heading">Find Your Perfect Property</h2>
         <div class="search-tabs" role="group" aria-label="Listing type">
           <button class="search-tab active" type="button" data-listing="buy" aria-pressed="true">Buy</button>
           <button class="search-tab" type="button" data-listing="rent" aria-pressed="false">Rent</button>
@@ -61,13 +62,13 @@
         <form id="searchForm" class="search-grid">
           <label class="field field-location">
             <span class="field-label">Location</span>
-            <span class="field-control"><span class="field-icon">⌖</span><input id="location" name="location" type="search" placeholder="City, neighbourhood or ZIP"></span>
+            <span class="field-control"><span class="field-icon">⌖</span><input id="location" name="location" type="search" placeholder="Enter city or location"></span>
           </label>
           <label class="field">
             <span class="field-label">Property type</span>
             <span class="field-control"><span class="field-icon">⌂</span>
               <select id="propertyType" name="propertyType">
-                <option value="all">Any type</option><option value="Apartment">Apartment</option><option value="House">House</option><option value="Villa">Villa</option><option value="Studio">Studio</option>
+                <option value="Select Property">Select Property</option><option>House</option><option>Apartment</option><option>Villa</option><option>Plot</option>
               </select>
             </span>
           </label>
@@ -75,11 +76,11 @@
             <span class="field-label">Maximum budget</span>
             <span class="field-control"><span class="field-icon">₹</span>
               <select id="budget" name="budget">
-                <option value="any">No max budget</option><option value="5000000">Up to ₹50 lakh</option><option value="10000000">Up to ₹1 crore</option><option value="20000000">Up to ₹2 crore</option><option value="50000000">Up to ₹5 crore</option>
+                <option value="Select Budget">Select Budget</option><option>Below ₹10 Lakh</option><option>₹10 - ₹30 Lakh</option><option>₹30 - ₹50 Lakh</option><option>Above ₹50 Lakh</option>
               </select>
             </span>
           </label>
-          <button class="btn btn-primary search-submit" type="submit"><span aria-hidden="true">⌕</span> Search homes</button>
+          <button class="btn btn-primary search-submit" type="button" onclick="searchProperty()"><span aria-hidden="true">⌕</span> Search Property</button>
         </form>
         <button class="advanced-toggle" id="advancedToggle" type="button" aria-expanded="false">Advanced filters <span>＋</span></button>
         <div class="advanced-filters" id="advancedFilters" hidden>
@@ -121,7 +122,7 @@
   </main>
   
 
-  <footer class="site-footer"><a class="brand footer-brand" href="#"><span class="brand-mark">⌂</span><span>Home<span class="brand-accent">Nest</span></span></a><p>Find your place. Make it yours.</p><span>© <span id="year"></span> HomeNest. Demo property data for preview.</span></footer>
+  <footer class="site-footer"><a class="brand footer-brand" href="#"><span class="brand-mark">⌂</span><span>Home<span class="brand-accent">Nest</span></span></a><p>Your dream home is just a search away.</p><span>© 2026 HomeNest. All Rights Reserved. Demo property data for preview.</span></footer>
 
   <dialog id="detailsDialog" class="app-dialog"><form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form><div id="detailsContent"></div></dialog>
   <dialog id="postDialog" class="app-dialog form-dialog"><form id="postForm"><button class="dialog-close" type="button" data-close-dialog>×</button><p class="eyebrow">GROW WITH HOMENEST</p><h2>List your property</h2><p class="dialog-intro">Share a few details and we’ll prepare your listing preview.</p><label class="field"><span class="field-label">Property title</span><input name="title" required maxlength="80" placeholder="e.g. Bright 2-bedroom apartment"></label><div class="form-row"><label class="field"><span class="field-label">City</span><input name="city" required placeholder="City"></label><label class="field"><span class="field-label">Price (₹)</span><input name="price" required type="number" min="1" placeholder="Price"></label></div><div class="form-row"><label class="field"><span class="field-label">Listing type</span><select name="listingType"><option value="buy">For sale</option><option value="rent">For rent</option></select></label><label class="field"><span class="field-label">Property type</span><select name="type"><option>Apartment</option><option>House</option><option>Villa</option><option>Studio</option></select></label></div><button class="btn btn-primary btn-full" type="submit">Create preview</button><p class="form-note">Demo only: this form does not publish to a server.</p></form></dialog>

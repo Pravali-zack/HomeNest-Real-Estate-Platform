@@ -27,3 +27,5 @@ This is a front-end demo. Property data is stored in `Script.js`; saved homes ar
 - `index.html`
 - `Script.js`
 - `CSS/base.css`
+- `CSS/search-footer.css`
+- `member-code/ritik-search-footer.html`
