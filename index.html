@@ -1,131 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover homes, apartments and investment properties with HomeNest. Search homes for sale and rent.">
-  <title>HomeNest | Find a place to call home</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="CSS/base.css">
-  <link rel="stylesheet" href="CSS/navbar-hero.css">
-  <link rel="stylesheet" href="CSS/search-footer.css">
-  <script src="Script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HomeNest - Real Estate Platform</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar-hero.css">
+    <link rel="stylesheet" href="css/search-footer.css">
+    <link rel="stylesheet" href="css/properties-about-contact.css">
+
 </head>
+
 <body>
-  <header class="site-header">
-    <a class="brand" href="#" aria-label="HomeNest home">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 32 32"><path d="M4 15.2 16 5l12 10.2v12.3a1.5 1.5 0 0 1-1.5 1.5h-21A1.5 1.5 0 0 1 4 27.5V15.2Z"/><path d="M12 29V18h8v11"/></svg>
-      </span>
-      <span>Home<span class="brand-accent">Nest</span></span>
-    </a>
-    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
-      <a class="active" href="#discover">Discover</a>
-      <a href="#how-it-works">How it works</a>
-      <a href="#why-homenest">Why HomeNest</a>
-    </nav>
-    <div class="header-actions">
-      <button class="saved-link" id="showSavedBtn" type="button"><span aria-hidden="true">♡</span> Saved <span id="savedCount" class="saved-count">0</span></button>
-      <button class="btn btn-dark btn-small" id="postPropertyBtn" type="button">List your property <span aria-hidden="true">↗</span></button>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero" id="discover">
-      <div class="hero-content">
-        <p class="eyebrow"><span class="eyebrow-dot"></span> A better way to find your place</p>
-        <h1>Find a place<br>that feels like <em>home.</em></h1>
-        <p class="hero-copy">Thoughtfully selected homes, transparent details, and a simpler way to make your next move.</p>
-        <div class="hero-proof">
-          <div class="avatar-stack" aria-hidden="true"><span>AK</span><span>MS</span><span>RP</span></div>
-          <p><strong>Made for your next chapter</strong><br><span>Explore homes at your own pace</span></p>
-        </div>
-      </div>
-      <div class="hero-image-wrap">
-        <img class="hero-image" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1500&q=85" alt="Modern home with warm natural light">
-        <div class="hero-image-note"><span class="note-icon">⌂</span><span><strong>Spaces worth coming home to</strong><small>Start your search today</small></span></div>
-      </div>
-      <div class="hero-shape" aria-hidden="true"></div>
-    </section>
+    <!-- Priyanshu: Navbar and Hero -->
+    <div id="navbar-hero"></div>
 
-    <section class="search-section" aria-label="Property search">
-      <div class="search-panel">
-        <h2 class="search-heading">Find Your Perfect Property</h2>
-        <div class="search-tabs" role="group" aria-label="Listing type">
-          <button class="search-tab active" type="button" data-listing="buy" aria-pressed="true">Buy</button>
-          <button class="search-tab" type="button" data-listing="rent" aria-pressed="false">Rent</button>
-          <button class="search-tab" type="button" data-listing="all" aria-pressed="false">All homes</button>
-        </div>
-        <form id="searchForm" class="search-grid">
-          <label class="field field-location">
-            <span class="field-label">Location</span>
-            <span class="field-control"><span class="field-icon">⌖</span><input id="location" name="location" type="search" placeholder="Enter city or location"></span>
-          </label>
-          <label class="field">
-            <span class="field-label">Property type</span>
-            <span class="field-control"><span class="field-icon">⌂</span>
-              <select id="propertyType" name="propertyType">
-                <option value="Select Property">Select Property</option><option>House</option><option>Apartment</option><option>Villa</option><option>Plot</option>
-              </select>
-            </span>
-          </label>
-          <label class="field">
-            <span class="field-label">Maximum budget</span>
-            <span class="field-control"><span class="field-icon">₹</span>
-              <select id="budget" name="budget">
-                <option value="Select Budget">Select Budget</option><option>Below ₹10 Lakh</option><option>₹10 - ₹30 Lakh</option><option>₹30 - ₹50 Lakh</option><option>Above ₹50 Lakh</option>
-              </select>
-            </span>
-          </label>
-          <button class="btn btn-primary search-submit" type="button" onclick="searchProperty()"><span aria-hidden="true">⌕</span> Search Property</button>
-        </form>
-        <button class="advanced-toggle" id="advancedToggle" type="button" aria-expanded="false">Advanced filters <span>＋</span></button>
-        <div class="advanced-filters" id="advancedFilters" hidden>
-          <label class="field"><span class="field-label">Minimum price (₹)</span><input id="minPrice" type="number" min="0" placeholder="No minimum"></label>
-          <label class="field"><span class="field-label">Bedrooms</span><select id="bedrooms"><option value="0">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select></label>
-          <label class="field"><span class="field-label">Sort by</span><select id="sortBy"><option value="recommended">Recommended</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option><option value="newest">Newest first</option></select></label>
-          <button class="btn btn-outline clear-btn" id="clearFilters" type="button">Clear filters</button>
-        </div>
-      </div>
-    </section>
+    <!-- Ritik: Search Section -->
+    <div id="search-section"></div>
 
-    <section class="listings-section section-wrap" id="properties">
-      <div class="section-heading">
-        <div><p class="eyebrow">YOUR NEXT MOVE STARTS HERE</p><h2>Explore <em>featured</em> homes</h2><p class="section-subtitle">A few places we think you’ll love. Find the one that feels right.</p></div>
-        <div class="listing-tools"><span id="resultCount" class="result-count" aria-live="polite">Showing homes</span><button id="resetSearch" class="text-button" type="button">Reset search ↗</button></div>
-      </div>
-      <div id="activeFilters" class="active-filters" aria-live="polite"></div>
-      <div id="propertyGrid" class="property-grid"></div>
-      <div id="emptyState" class="empty-state" hidden><div class="empty-icon">⌂</div><h3>No homes found just yet</h3><p>Try changing your location or relaxing a few filters.</p><button class="btn btn-dark" id="emptyReset" type="button">Clear all filters</button></div>
-    </section>
+    <!-- Pushpendra: Properties, About and Contact -->
+    <div id="properties-about-contact"></div>
 
-    <section class="trust-section" id="why-homenest">
-      <div class="trust-copy"><p class="eyebrow">THE HOMENEST DIFFERENCE</p><h2>Less searching.<br><em>More settling in.</em></h2><p>Finding a home is a big decision. HomeNest makes the discovery process feel clearer, calmer, and more human.</p><a href="#how-it-works" class="inline-link">See how it works <span>↗</span></a></div>
-      <div class="trust-cards">
-        <article class="trust-card"><span class="trust-icon">✦</span><h3>Curated spaces</h3><p>Browse a considered collection of homes with useful details at a glance.</p></article>
-        <article class="trust-card"><span class="trust-icon">⌕</span><h3>Search your way</h3><p>Use location, budget, property type, and bedroom filters to narrow it down.</p></article>
-        <article class="trust-card"><span class="trust-icon">♡</span><h3>Keep your favourites</h3><p>Save properties you like and come back to compare them later.</p></article>
-      </div>
-    </section>
+    <!-- Ritik: Footer -->
+    <div id="footer-section"></div>
 
-    <section class="steps-section section-wrap" id="how-it-works">
-      <div class="section-heading centered"><p class="eyebrow">A SIMPLE WAY FORWARD</p><h2>Your next home, in <em>three steps.</em></h2></div>
-      <div class="steps-grid">
-        <article><span class="step-number">01</span><h3>Tell us what matters</h3><p>Choose a location, budget, and the kind of home you have in mind.</p></article>
-        <article><span class="step-number">02</span><h3>Explore your shortlist</h3><p>Compare property details, save favourites, and open the homes that catch your eye.</p></article>
-        <article><span class="step-number">03</span><h3>Take the next step</h3><p>Reach out about a property and start planning your visit.</p></article>
-      </div>
-    </section>
-  </main>
-  
+    <!-- JavaScript -->
+    <script src="javascript.js"></script>
 
-  <footer class="site-footer"><a class="brand footer-brand" href="#"><span class="brand-mark">⌂</span><span>Home<span class="brand-accent">Nest</span></span></a><p>Your dream home is just a search away.</p><span>© 2026 HomeNest. All Rights Reserved. Demo property data for preview.</span></footer>
-
-  <dialog id="detailsDialog" class="app-dialog"><form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form><div id="detailsContent"></div></dialog>
-  <dialog id="postDialog" class="app-dialog form-dialog"><form id="postForm"><button class="dialog-close" type="button" data-close-dialog>×</button><p class="eyebrow">GROW WITH HOMENEST</p><h2>List your property</h2><p class="dialog-intro">Share a few details and we’ll prepare your listing preview.</p><label class="field"><span class="field-label">Property title</span><input name="title" required maxlength="80" placeholder="e.g. Bright 2-bedroom apartment"></label><div class="form-row"><label class="field"><span class="field-label">City</span><input name="city" required placeholder="City"></label><label class="field"><span class="field-label">Price (₹)</span><input name="price" required type="number" min="1" placeholder="Price"></label></div><div class="form-row"><label class="field"><span class="field-label">Listing type</span><select name="listingType"><option value="buy">For sale</option><option value="rent">For rent</option></select></label><label class="field"><span class="field-label">Property type</span><select name="type"><option>Apartment</option><option>House</option><option>Villa</option><option>Studio</option></select></label></div><button class="btn btn-primary btn-full" type="submit">Create preview</button><p class="form-note">Demo only: this form does not publish to a server.</p></form></dialog>
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
